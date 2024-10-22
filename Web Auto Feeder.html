@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi and Servo Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-align: left;
+            color: #333;
+        }
+        input[type="text"], input[type="password"], input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WiFi and Servo Control</h1>
+        <form action="/setWiFi" method="POST">
+            <label for="ssid">SSID (WiFi Name):</label>
+            <input type="text" id="ssid" name="ssid" placeholder="Enter your WiFi name" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your WiFi password" required>
+
+            <input type="submit" value="Save WiFi Settings">
+        </form>
+
+        <form action="/setServo" method="POST" style="margin-top: 30px;">
+            <label for="angle">Servo Angle (0-180):</label>
+            <input type="number" id="angle" name="angle" min="0" max="180" required>
+
+            <input type="submit" value="Set Servo Angle">
+        </form>
+
+        <div class="message">
+            <p>Enter your WiFi credentials to connect your device to the network.</p>
+            <p>Control the servo by entering an angle between 0 and 180 degrees.</p>
+        </div>
+    </div>
+</body>
+</html>
